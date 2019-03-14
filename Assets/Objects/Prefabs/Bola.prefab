@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 6704639443717072700}
   m_Layer: 0
   m_Name: Bola
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -122,6 +122,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   velocidade: 300
+  delay: 0
   rb: {fileID: 1010022953104577821}
   bola: {fileID: 1010022953104577819}
-  bolaPos: {x: 0, y: -4, z: 0}
+  bolaPos: {x: 0, y: -3.75, z: 0}
+  velBol: {x: 0, y: 0, z: 0}
+  colisorPlataforma: {fileID: 8977678999863494553, guid: c15026ff34296124eb672ab0d89578bf,
+    type: 3}
