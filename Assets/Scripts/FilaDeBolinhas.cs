@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bolinhas : MonoBehaviour
+public class FilaDeBolinhas : MonoBehaviour
 {
     void Start()
     {
-
+        
     }
 
     void Update()
