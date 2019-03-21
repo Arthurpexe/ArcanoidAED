@@ -4,12 +4,9 @@ using UnityEngine;
 
 public class Matar : MonoBehaviour
 {
-
-
     private void OnTriggerEnter(Collider other)
     {
-
-        Destroy(other.gameObject);
-
+        Destroy(other.gameObject,1);
+        //Diminuir a pontuação de NBolaGame em 1
     }
 }

@@ -4,16 +4,13 @@ using UnityEngine;
 
 public class Bola
 {
-    public int numero;
+    public GameObject bola;
+    public Rigidbody rbBola;
+    public int numeroBola;
+
     public Bola(int numeroDaBola)
     {
-        if (numeroDaBola >= 1)//(?)
-        {
-            numero = numeroDaBola;//(?)
-        }
-        else
-        {
-            numero = 0;//(?)
-        }
+        numeroBola = numeroDaBola;
+        
     }
 }
