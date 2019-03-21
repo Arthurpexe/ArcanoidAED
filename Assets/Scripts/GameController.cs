@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class GameController : MonoBehaviour
 {
+    public static GameController singleton;
     public GameObject bolinha;
     public GameObject plataforma;
     public FilaDeBolinhas filaDeBolas = new FilaDeBolinhas();
@@ -28,17 +29,10 @@ public class GameController : MonoBehaviour
         return novaBola;
     }
 
-    //public bool BolaParada()
-    //{
-    //    for (int i = 0; i <= instanciadorDeBolinhas.childCount; i++)
-    //    {
-    //        if (instanciadorDeBolinhas.GetChild(i).GetComponent<Rigidbody>().velocity == Vector3.zero)
-    //        {
-    //            return true;
-    //        }
-    //    }
-    //    return false;
-    //}
+    void Awake()
+    {
+        singleton = this;
+    }
 
     void Start()
     {

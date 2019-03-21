@@ -6,11 +6,10 @@ public class Bola
 {
     public GameObject bola;
     public Rigidbody rbBola;
-    public int numeroBola;
+    public int nBola;
 
     public Bola(int numeroDaBola)
     {
-        numeroBola = numeroDaBola;
-        
+        nBola = numeroDaBola;
     }
 }
