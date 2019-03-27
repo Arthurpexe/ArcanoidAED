@@ -6,12 +6,14 @@ public class moverplataforma : MonoBehaviour {
 
     public float velocidade;
 
-	// Use this for initialization
+
 	void Start () {
 		
 	}
 	
-	// Update is called once per frame
+    /// <summary>
+    /// mexe a plataforma e deixa o limite de ate onde ela pode ir
+    /// </summary>
 	void Update () {
 
         var x = Input.GetAxis("Horizontal") * Time.deltaTime * 10.0f;
@@ -24,6 +26,10 @@ public class moverplataforma : MonoBehaviour {
 
     }
 
+    /// <summary>
+    /// encontra os limites da tela para não deixar o jogador passar delas
+    /// </summary>
+    /// <param name="PosArcanoid"></param>
     void Mexer(Vector2 PosArcanoid)
     {
         Vector2 min = Camera.main.ViewportToWorldPoint(new Vector2(0, 0));

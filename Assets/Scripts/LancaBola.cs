@@ -17,14 +17,14 @@ public class LancaBola : MonoBehaviour
       //instância do random
       Random rnd = new Random();
 
-
-    // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>(); 
     }
 
-    // Update is called once per frame
+    /// <summary>
+    /// precionando espaço, lança a bola em um angulo aleatório
+    /// </summary>
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))
