@@ -3,7 +3,14 @@ guid: a3a55908a47047c449b4db5c72ff1f2d
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - bolinha: {instanceID: 0}
+  - plataforma: {fileID: 8977678999863494552, guid: c15026ff34296124eb672ab0d89578bf,
+      type: 3}
+  - colisorPlataforma: {instanceID: 0}
+  - colisorMorte: {instanceID: 0}
+  - OrtoCam: {instanceID: 0}
+  - TDCam: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

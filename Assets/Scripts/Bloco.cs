@@ -4,11 +4,24 @@ using UnityEngine;
 
 public class Bloco
 {
-    public GameObject bloco;
-    public int tBloco;
+    public GameObject blocoI, bloco1, bloco2;
 
-    public Bloco(int tipoDoBloco)
+    public Bloco()
     {
-        tBloco = tipoDoBloco;
+    }
+
+    public GameObject TipoDoBloco(int tipoDoBloco)
+    {
+        switch (tipoDoBloco)
+        {
+            case 0:
+                return blocoI;
+            case 1:
+                return bloco1;
+            case 2:
+                return bloco2;
+            default:
+                return null;
+        }
     }
 }

@@ -6,10 +6,8 @@ public class Bola
 {
     public GameObject bola;
     public Rigidbody rbBola;
-    public int nBola;
 
-    public Bola(int numeroDaBola)
+    public Bola()
     {
-        nBola = numeroDaBola;
     }
 }

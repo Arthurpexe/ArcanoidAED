@@ -6,7 +6,7 @@ public class Matar : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
-        Destroy(other.gameObject,1);
-        GameController.singleton.NBolasGame -= 1;
+        Destroy(other.gameObject);
+        GameController.singleton.nBolasGame -= 1;
     }
 }
