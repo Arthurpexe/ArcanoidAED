@@ -14,6 +14,8 @@ public class GameController : MonoBehaviour
     public GameObject OrtoCam;
     public GameObject TDCam;
 
+    public Rigidbody rb;
+
     private Vector3 bolaPos;
     private Bola bolaX;
     private Quaternion quaternionZero = new Quaternion(0, 0, 0, 0);
@@ -42,7 +44,14 @@ public class GameController : MonoBehaviour
 
     void Update()
     {
-        
+        // Apertando Espaço, lança a bola em um ângulo aleatório
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            aceleracao.x = Random.Range(-500, 500);
+            aceleracao.y = 500f;
+            rb.AddForce(aceleracao.x, aceleracao.y, 0, ForceMode.Acceleration);
+        }
+
         //if(instanciadorDeBolinhas.childCount == 0)
         //{
         //    //Game Over

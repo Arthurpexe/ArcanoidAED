@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class moverplataforma : MonoBehaviour
 {
-    public float velocidade;
+    public Collider paredeD, paredeE;
 
+    private Rigidbody rbPlataforma;
 
     void Start()
     {
-
+        rbPlataforma = this.GetComponent<Rigidbody>();
     }
 
     /// <summary>
@@ -18,11 +19,11 @@ public class moverplataforma : MonoBehaviour
     void Update()
     {
 
-        var x = Input.GetAxis("Horizontal") * Time.deltaTime * -10.0f;
+        var x = Input.GetAxis("Horizontal") * -0.3f;
 
         transform.Translate(0, x, 0);
 
-        var PosArcanoid = transform.position;
+        float PosArcanoid = this.transform.position.x;
 
         Mexer(PosArcanoid);
 
@@ -31,21 +32,20 @@ public class moverplataforma : MonoBehaviour
     /// <summary>
     /// encontra os limites da tela para não deixar o jogador passar delas
     /// </summary>
-    /// <param name="PosArcanoid"></param>
-    void Mexer(Vector2 PosArcanoid)
+    /// <param name="PosArcanoid">Recebendo a posição do Arcanoid</param>
+    void Mexer(float PosArcanoid)
     {
-        Vector2 min = Camera.main.ViewportToWorldPoint(new Vector2(0, 0));
-        Vector2 max = Camera.main.ViewportToWorldPoint(new Vector2(1, 1));
+        float min = -2.4f;
+        float max = 2.4f;
 
-        max.x = max.x - 0.600f;
-        min.x = min.x + 0.600f;
+        Vector3 pos = transform.position;
 
-        Vector2 pos = transform.position;
+        pos.x += PosArcanoid * Time.deltaTime * 0;
 
-        pos += PosArcanoid * velocidade * Time.deltaTime;
-
-        pos.x = Mathf.Clamp(pos.x, min.x, max.x);
+        pos.x = Mathf.Clamp(pos.x, min, max);
 
         transform.position = pos;
+
     }
+
 }
