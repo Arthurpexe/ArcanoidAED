@@ -61,6 +61,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Bloco.cs" />
+    <Compile Include="Assets\Scripts\Bloco0.cs" />
+    <Compile Include="Assets\Scripts\Bloco1.cs" />
+    <Compile Include="Assets\Scripts\Bloco2.cs" />
     <Compile Include="Assets\Scripts\Bola.cs" />
     <Compile Include="Assets\Scripts\Bolinha.cs" />
     <Compile Include="Assets\Scripts\Dado.cs" />
@@ -71,6 +74,7 @@
     <Compile Include="Assets\Scripts\GameOver.cs" />
     <Compile Include="Assets\Scripts\ListaDeBlocos.cs" />
     <Compile Include="Assets\Scripts\Matar.cs" />
+    <Compile Include="Assets\Scripts\moverplataforma.cs" />
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>C:/Users/arthu/GitHub Repos/ArcanoidAED/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>

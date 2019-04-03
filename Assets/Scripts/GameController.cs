@@ -10,14 +10,13 @@ public class GameController : MonoBehaviour
     public FilaDeBolinhas filaDeBolas = new FilaDeBolinhas();
     public Collider colisorMorte, colisorPlataforma;
     public int nBolasFilaTotal = 0, nBolasFilaAtual = 0, nBolasGame = 0, bolasPegas = 0;
-    public Vector3 aceleracao;
     public GameObject GameOverCanvas, ortoCam, treeDCam;
     public Text numeroDeBolas;
 
+    private Vector3 aceleracao;
     private Vector3 bolaPos;
     private Bola bolaX;
     private Quaternion quaternionZero = new Quaternion(0, 0, 0, 0);
-    private Transform instanciadorDeBolinhas;
 
 
     public Bola CriaBola()
@@ -125,7 +124,6 @@ public class GameController : MonoBehaviour
 
     void Start()
     {
-        instanciadorDeBolinhas = this.GetComponentInChildren<Transform>();
         filaDeBolas.Enfileira(CriaBola());
         colisorPlataforma = plataforma.GetComponent<Collider>();
     }
@@ -165,8 +163,10 @@ public class GameController : MonoBehaviour
              bolaX = filaDeBolas.Desenfileira();
             if (bolaX != null)
             {
+                aceleracao.x = Random.Range(-250, 250);
+                aceleracao.y = 250;
                 bolaPos = this.transform.position;
-                Instantiate(bolaX.bola, bolaPos, quaternionZero, instanciadorDeBolinhas).GetComponent<Rigidbody>().AddForce(aceleracao, ForceMode.Acceleration);
+                Instantiate(bolaX.bola, bolaPos, quaternionZero).GetComponent<Rigidbody>().AddForce(aceleracao, ForceMode.Acceleration);
                 nBolasGame += 1;
                 nBolasFilaAtual -= 1;
             }
