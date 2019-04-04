@@ -6,18 +6,20 @@ public class moverplataforma : MonoBehaviour
 {
     private Rigidbody rbPlataforma;
 
+    public float slow;
+
     void Start()
     {
         rbPlataforma = this.GetComponent<Rigidbody>();
     }
 
     /// <summary>
-    /// mexe a plataforma e deixa o limite de ate onde ela pode ir
+    /// mexe a plataforma
     /// </summary>
     void Update()
     {
 
-        var x = Input.GetAxis("Horizontal") * -0.3f;
+        var x = Input.GetAxis("Horizontal") * slow;
 
         transform.Translate(0, x, 0);
 
@@ -38,7 +40,7 @@ public class moverplataforma : MonoBehaviour
 
         Vector3 pos = transform.position;
 
-        pos.x += PosArcanoid * Time.deltaTime * 0;
+        pos.x += PosArcanoid * Time.timeScale * 0;
 
         pos.x = Mathf.Clamp(pos.x, min, max);
 

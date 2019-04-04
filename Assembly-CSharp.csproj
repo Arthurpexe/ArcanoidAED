@@ -66,6 +66,7 @@
     <Compile Include="Assets\Scripts\Bloco2.cs" />
     <Compile Include="Assets\Scripts\Bola.cs" />
     <Compile Include="Assets\Scripts\Bolinha.cs" />
+    <Compile Include="Assets\Scripts\CriaListaDeBlocos.cs" />
     <Compile Include="Assets\Scripts\Dado.cs" />
     <Compile Include="Assets\Scripts\ElementoBloco.cs" />
     <Compile Include="Assets\Scripts\ElementoBola.cs" />

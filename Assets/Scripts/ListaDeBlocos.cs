@@ -5,9 +5,9 @@ using UnityEngine;
 public class ListaDeBlocos
 {
     public ElementoBloco primeiro, ultimo;
-    public int nDaLista;
+    public float nDaLista;
 
-    public ListaDeBlocos(int numeroDaLista)
+    public ListaDeBlocos(float numeroDaLista)
     {
         nDaLista = numeroDaLista;
         ElementoBloco aux = new ElementoBloco(null);
@@ -20,24 +20,49 @@ public class ListaDeBlocos
         ElementoBloco novoElemento = new ElementoBloco(novoBloco);
         ultimo.proximo = novoElemento;
         ultimo = novoElemento;
+        
     }
 
-    //public Bloco Desalistar()
-    //{
-    //    ElementoBloco auxRetorno = primeiro.proximo;
-    //    if (vazio())
-    //    {
-    //        return null;
-    //    }
-    //    else
-    //    {
-
-    //    }
-    //}
+    public Bloco Desalistar(int tipoDoBloco)
+    {
+        ElementoBloco aux = primeiro;
+        if (vazio())
+        {
+            return null;
+        }
+        else
+        {
+            for(int i = 0; i < 6; i++)
+            {
+                if (aux.proximo.meuBloco.tipoDoBloco == tipoDoBloco)
+                {
+                    ElementoBloco auxRetorno = aux.proximo;
+                    if (auxRetorno == ultimo)
+                    {
+                        aux = ultimo;
+                        aux.proximo = null;
+                        return auxRetorno.meuBloco;
+                    }
+                    else
+                    {
+                        aux.proximo = auxRetorno.proximo;
+                        auxRetorno.proximo = null;
+                        return auxRetorno.meuBloco;
+                    }
+                }
+                else
+                {
+                    aux = aux.proximo;
+                }
+            }
+            return null;
+        }
+    }
 
     public bool vazio()
     {
-        if (ultimo == primeiro)
+        ElementoBloco aux = primeiro.proximo;
+        if (aux.proximo == null)
         {
             return true;
         }
@@ -45,5 +70,16 @@ public class ListaDeBlocos
         {
             return false;
         }
+    }
+    public int QuantosBlocos()
+    {
+        ElementoBloco aux = primeiro;
+        int quantidade = 0;
+        while(aux.proximo != null)
+        {
+            aux = aux.proximo;
+            quantidade += 1;
+        }
+         return quantidade;
     }
 }

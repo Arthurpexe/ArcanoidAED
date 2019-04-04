@@ -12,6 +12,9 @@ public class GameController : MonoBehaviour
     public int nBolasFilaTotal = 0, nBolasFilaAtual = 0, nBolasGame = 0, bolasPegas = 0;
     public GameObject GameOverCanvas, ortoCam, treeDCam;
     public Text numeroDeBolas;
+    public float cooldown, tempocooldown;
+    public Image cooldownIcon;
+    public AudioSource semBola;
 
     private Vector3 aceleracao;
     private Vector3 bolaPos;
@@ -27,94 +30,6 @@ public class GameController : MonoBehaviour
         novaBola.bola = bolinha;
         novaBola.rbBola = bolinha.GetComponent<Rigidbody>();
         return novaBola;
-    }
-
-    public ListaDeBlocos CriaLista(int nDaLista)
-    {
-        ListaDeBlocos novaListaDBlocos = new ListaDeBlocos(nDaLista);
-        //como fazer elas spawnarem em linhas verticais diferentes e verificar se a linha esta vazia ou não. talvez criando uma lista pra cada linha vertical, caso ela esteja vazia cria os 6 blocos.
-        int posicaoAleatoria = Random.Range(1, 6);
-        
-        for(int i = 0; i < 6; i++)
-        {
-            if(i == posicaoAleatoria)
-            {
-                Bloco novoBloco = new Bloco();
-                GameObject novoBlocoObj = novoBloco.TipoDoBloco(0);
-                float x = 0;
-                Vector3 bPos = new Vector3(x, 0, 0);
-
-                switch (posicaoAleatoria)
-                {
-                    case 1:
-                        x = -2.5f;
-                        Instantiate<GameObject>(novoBlocoObj, bPos, quaternionZero);
-                        break;
-                    case 2:
-                        x = -1.5f;
-                        Instantiate<GameObject>(novoBlocoObj, bPos, quaternionZero);
-                        break;
-                    case 3:
-                        x = -0.5f;
-                        Instantiate<GameObject>(novoBlocoObj, bPos, quaternionZero);
-                        break;
-                    case 4:
-                        x = 0.5f;
-                        Instantiate<GameObject>(novoBlocoObj, bPos, quaternionZero);
-                        break;
-                    case 5:
-                        x = 1.5f;
-                        Instantiate<GameObject>(novoBlocoObj, bPos, quaternionZero);
-                        break;
-                    case 6:
-                        x = 2.5f;
-                        Instantiate<GameObject>(novoBlocoObj, bPos, quaternionZero);
-                        break;
-                }
-
-                novaListaDBlocos.Alistar(novoBloco);
-            }
-            else
-            {
-                int blocoAleatorio = Random.Range(1, 2);
-                Bloco novoBloco = new Bloco();
-                GameObject novoBlocoObj = novoBloco.TipoDoBloco(blocoAleatorio);
-                float x = 0;
-                Vector3 bPos = new Vector3(x, 0, 0);
-
-                switch (posicaoAleatoria)
-                {
-                    case 1:
-                        x = -2.5f;
-                        Instantiate<GameObject>(novoBlocoObj, bPos, quaternionZero);
-                        break;
-                    case 2:
-                        x = -1.5f;
-                        Instantiate<GameObject>(novoBlocoObj, bPos, quaternionZero);
-                        break;
-                    case 3:
-                        x = -0.5f;
-                        Instantiate<GameObject>(novoBlocoObj, bPos, quaternionZero);
-                        break;
-                    case 4:
-                        x = 0.5f;
-                        Instantiate<GameObject>(novoBlocoObj, bPos, quaternionZero);
-                        break;
-                    case 5:
-                        x = 1.5f;
-                        Instantiate<GameObject>(novoBlocoObj, bPos, quaternionZero);
-                        break;
-                    case 6:
-                        x = 2.5f;
-                        Instantiate<GameObject>(novoBlocoObj, bPos, quaternionZero);
-                        break;
-                }
-
-                novaListaDBlocos.Alistar(novoBloco);
-            }
-        }
-        
-        return novaListaDBlocos;
     }
 
     void Awake()
@@ -158,21 +73,22 @@ public class GameController : MonoBehaviour
             GameOverCanvas.SetActive(false);
         }
 
-        if (Input.GetKeyDown(KeyCode.Keypad0))
+        if (Input.GetKeyDown(KeyCode.Keypad0) && cooldown >= 1)
         {
              bolaX = filaDeBolas.Desenfileira();
             if (bolaX != null)
             {
-                aceleracao.x = Random.Range(-250, 250);
-                aceleracao.y = 250;
+                aceleracao.x = Random.Range(-400, 400);
+                aceleracao.y = 400;
                 bolaPos = this.transform.position;
                 Instantiate(bolaX.bola, bolaPos, quaternionZero).GetComponent<Rigidbody>().AddForce(aceleracao, ForceMode.Acceleration);
                 nBolasGame += 1;
                 nBolasFilaAtual -= 1;
+                cooldown -= 1;
             }
             else
             {
-                /*toca um som de erro*/
+                semBola.Play();
             }
         }
 
@@ -181,7 +97,7 @@ public class GameController : MonoBehaviour
             filaDeBolas.Enfileira(CriaBola());
         }
 
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Backspace))
         {
             if (ortoCam.activeSelf == true)
             {
@@ -193,6 +109,16 @@ public class GameController : MonoBehaviour
                 treeDCam.SetActive(false);
                 ortoCam.SetActive(true);
             }
+        }
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
+
+        if (cooldown < 1)
+        {
+            cooldown += tempocooldown;
+            cooldownIcon.fillAmount = cooldown;
         }
     }
 }

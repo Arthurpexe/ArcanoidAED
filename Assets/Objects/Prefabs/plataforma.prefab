@@ -46,17 +46,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bolinha: {fileID: 5899691890309536990, guid: 86859521f3efe7442bc39a4c97c07732, type: 3}
   plataforma: {fileID: 8977678999863494552}
+  bolaFixa: {fileID: 7763210072550177818}
   colisorMorte: {fileID: 0}
-  colisorPlataforma: {fileID: 0}
+  colisorPlataforma: {fileID: 8991675564694856110}
   nBolasFilaTotal: 0
   nBolasFilaAtual: 0
   nBolasGame: 0
   bolasPegas: 0
-  aceleracao: {x: 500, y: 500, z: 0}
+  GameOverCanvas: {fileID: 0}
   ortoCam: {fileID: 0}
   treeDCam: {fileID: 0}
   numeroDeBolas: {fileID: 0}
-  GameOverCanvas: {fileID: 0}
+  cooldown: 1
+  tempocooldown: 0.01
+  cooldownIcon: {fileID: 0}
 --- !u!1 &8977678999863494552
 GameObject:
   m_ObjectHideFlags: 0
@@ -69,6 +72,7 @@ GameObject:
   - component: {fileID: 8977678999863494555}
   - component: {fileID: 8977678999863494554}
   - component: {fileID: 8991675564694856110}
+  - component: {fileID: 813459740}
   m_Layer: 0
   m_Name: plataforma
   m_TagString: Untagged
@@ -150,6 +154,19 @@ CapsuleCollider:
   m_Height: 2.25
   m_Direction: 1
   m_Center: {x: 0.2, y: 0, z: 0}
+--- !u!114 &813459740
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8977678999863494552}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c639998ba7327c4ca64daf5d57666eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slow: -0.1
 --- !u!1001 &465276596185940915
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -224,6 +241,12 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 979eac29c11594648b54acfffb99835f, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e3cebeaab73a18e42aab77ba2159be3c, type: 3}
+--- !u!1 &7763210072550177818 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7910723341506396073, guid: e3cebeaab73a18e42aab77ba2159be3c,
+    type: 3}
+  m_PrefabInstance: {fileID: 465276596185940915}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &649681165480277444 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1112634344960292471, guid: e3cebeaab73a18e42aab77ba2159be3c,
