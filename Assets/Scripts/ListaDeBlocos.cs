@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
 public class ListaDeBlocos
 {
     public ElementoBloco primeiro, ultimo;
@@ -48,6 +49,36 @@ public class ListaDeBlocos
         }
     }
 
+
+    public Bloco DesalistarConteudo(Bloco bloco)
+    {
+        ElementoBloco aux = primeiro.proximo;
+        while (aux.proximo != null && aux.proximo.meuBloco.Equals(bloco))
+        {
+            aux = aux.proximo;
+        }
+
+        if(aux.proximo == null)
+        {
+            return null;
+        }
+        else
+        {
+            ElementoBloco auxRetorno = aux.proximo;
+            aux.proximo = auxRetorno.proximo;
+            if (auxRetorno == ultimo)
+                ultimo = aux;
+            else
+                auxRetorno.proximo = null;
+
+            return auxRetorno.meuBloco;
+        }
+
+
+    }
+
+    
+
     public int LocalizaBloco(int tipoDoBloco)
     {
         ElementoBloco aux = primeiro;
@@ -73,15 +104,15 @@ public class ListaDeBlocos
             return false;
         }
     }
-    public int QuantosBlocos()
+    public void QuantosBlocos()
     {
-        ElementoBloco aux = primeiro;
+        ElementoBloco aux = primeiro.proximo;
         int quantidade = 0;
         while(aux.proximo != null)
         {
             aux = aux.proximo;
             quantidade += 1;
         }
-         return quantidade;
+        Debug.Log(quantidade);
     }
 }

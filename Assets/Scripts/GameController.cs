@@ -22,6 +22,9 @@ public class GameController : MonoBehaviour
     private Quaternion quaternionZero = new Quaternion(0, 0, 0, 0);
 
 
+    public GameObject audios;
+
+
     public Bola CriaBola()
     {
         Bola novaBola = new Bola();

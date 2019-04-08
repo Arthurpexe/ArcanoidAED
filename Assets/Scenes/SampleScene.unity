@@ -598,6 +598,8 @@ MonoBehaviour:
   bloco0: {fileID: 1432377762299504450, guid: 084bfb2c87a436f4f9b44c4f078f2e4c, type: 3}
   bloco1: {fileID: 1942927565203795891, guid: 83b580bf395e83745a2f036446ffe9cf, type: 3}
   bloco2: {fileID: 7465376186310430034, guid: 79ad9e774ef14004389a2a4c0e7599b9, type: 3}
+  listaDeBlocos:
+    nDaLista: 0
   quantidadeDeBlocos: 0
 --- !u!1 &256447835 stripped
 GameObject:
@@ -1843,6 +1845,8 @@ MonoBehaviour:
   bloco0: {fileID: 1432377762299504450, guid: 084bfb2c87a436f4f9b44c4f078f2e4c, type: 3}
   bloco1: {fileID: 1942927565203795891, guid: 83b580bf395e83745a2f036446ffe9cf, type: 3}
   bloco2: {fileID: 7465376186310430034, guid: 79ad9e774ef14004389a2a4c0e7599b9, type: 3}
+  listaDeBlocos:
+    nDaLista: 0
   quantidadeDeBlocos: 0
 --- !u!1001 &789160998
 PrefabInstance:
@@ -2507,6 +2511,8 @@ MonoBehaviour:
   bloco0: {fileID: 1432377762299504450, guid: 084bfb2c87a436f4f9b44c4f078f2e4c, type: 3}
   bloco1: {fileID: 1942927565203795891, guid: 83b580bf395e83745a2f036446ffe9cf, type: 3}
   bloco2: {fileID: 7465376186310430034, guid: 79ad9e774ef14004389a2a4c0e7599b9, type: 3}
+  listaDeBlocos:
+    nDaLista: 0
   quantidadeDeBlocos: 0
 --- !u!1 &1136242814
 GameObject:
@@ -4582,6 +4588,8 @@ MonoBehaviour:
   bloco0: {fileID: 1432377762299504450, guid: 084bfb2c87a436f4f9b44c4f078f2e4c, type: 3}
   bloco1: {fileID: 1942927565203795891, guid: 83b580bf395e83745a2f036446ffe9cf, type: 3}
   bloco2: {fileID: 7465376186310430034, guid: 79ad9e774ef14004389a2a4c0e7599b9, type: 3}
+  listaDeBlocos:
+    nDaLista: 0
   quantidadeDeBlocos: 0
 --- !u!1 &2014880839
 GameObject:
@@ -4954,6 +4962,8 @@ MonoBehaviour:
   bloco0: {fileID: 1432377762299504450, guid: 084bfb2c87a436f4f9b44c4f078f2e4c, type: 3}
   bloco1: {fileID: 1942927565203795891, guid: 83b580bf395e83745a2f036446ffe9cf, type: 3}
   bloco2: {fileID: 7465376186310430034, guid: 79ad9e774ef14004389a2a4c0e7599b9, type: 3}
+  listaDeBlocos:
+    nDaLista: 0
   quantidadeDeBlocos: 0
 --- !u!1 &2081802005
 GameObject:
@@ -5002,6 +5012,8 @@ MonoBehaviour:
   bloco0: {fileID: 1432377762299504450, guid: 084bfb2c87a436f4f9b44c4f078f2e4c, type: 3}
   bloco1: {fileID: 1942927565203795891, guid: 83b580bf395e83745a2f036446ffe9cf, type: 3}
   bloco2: {fileID: 7465376186310430034, guid: 79ad9e774ef14004389a2a4c0e7599b9, type: 3}
+  listaDeBlocos:
+    nDaLista: 0
   quantidadeDeBlocos: 0
 --- !u!1001 &2090889596
 PrefabInstance:
@@ -5503,6 +5515,10 @@ PrefabInstance:
       propertyPath: semBola
       value: 
       objectReference: {fileID: 660993269}
+    - target: {fileID: 701633681, guid: c15026ff34296124eb672ab0d89578bf, type: 3}
+      propertyPath: audios
+      value: 
+      objectReference: {fileID: 311977393}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c15026ff34296124eb672ab0d89578bf, type: 3}
 --- !u!1001 &9085598876718947012

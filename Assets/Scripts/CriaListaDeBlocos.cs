@@ -12,6 +12,9 @@ public class CriaListaDeBlocos : MonoBehaviour
 
     private Quaternion quaternion90 = new Quaternion(0, 0, 7071068, 7071068);
 
+    GameObject blocoInstanciado;
+
+
     void Awake()
     {
         singleton = this;
@@ -24,7 +27,7 @@ public class CriaListaDeBlocos : MonoBehaviour
 
     private void Update()
     {
-        quantidadeDeBlocos = listaDeBlocos.QuantosBlocos();
+        //quantidadeDeBlocos = listaDeBlocos.QuantosBlocos();
 
         if (Input.GetKeyDown(KeyCode.RightControl))
         {
@@ -38,7 +41,8 @@ public class CriaListaDeBlocos : MonoBehaviour
                 if (sorte0 == i)
                 {
                     Bloco novoBloco = new Bloco(0);
-                    Instantiate(bloco0, new Vector3(i - 2.5f, nListaOriginal, 0), quaternion90, this.gameObject.transform);
+                    blocoInstanciado = Instantiate(bloco0, new Vector3(i - 2.5f, nListaOriginal, 0), quaternion90, this.gameObject.transform);
+                    blocoInstanciado.GetComponent<Bloco0>().myBloco = novoBloco;
                     listaDeBlocos.Alistar(novoBloco);
                 }
                 else
@@ -46,13 +50,15 @@ public class CriaListaDeBlocos : MonoBehaviour
                     if (sorte == 1)
                     {
                         Bloco novoBloco = new Bloco(1);
-                        Instantiate(bloco1, new Vector3(i - 2.5f, nListaOriginal, 0), quaternion90, this.gameObject.transform);
+                        blocoInstanciado = Instantiate(bloco1, new Vector3(i - 2.5f, nListaOriginal, 0), quaternion90, this.gameObject.transform);
+                        blocoInstanciado.GetComponent<Bloco1>().myBloco = novoBloco;
                         listaDeBlocos.Alistar(novoBloco);
                     }
                     if (sorte == 2) 
                     {
                         Bloco novoBloco = new Bloco(2);
-                        Instantiate(bloco2, new Vector3(i - 2.5f, nListaOriginal, 0), quaternion90, this.gameObject.transform);
+                        blocoInstanciado = Instantiate(bloco2, new Vector3(i - 2.5f, nListaOriginal, 0), quaternion90, this.gameObject.transform);
+                        blocoInstanciado.GetComponent<Bloco2>().myBloco = novoBloco;
                         listaDeBlocos.Alistar(novoBloco);
                     }
                 }

@@ -8,18 +8,12 @@ public class Bloco1 : MonoBehaviour
     public int tipoBloco;
     public AudioSource ruidoMorte;
     Bloco blocoDesalistado;
-
+    public Bloco myBloco;
+    
 
     private void Update()
     {
-        if(vida == 0)
-        {
-            blocoDesalistado = CriaListaDeBlocos.singleton.listaDeBlocos.Desalistar(tipoBloco);
-            if (blocoDesalistado.tipoDoBloco == tipoBloco)
-            {
-                Destroy(this.gameObject);
-            }
-        }
+
     }
 
     private void OnTriggerEnter(Collider other)

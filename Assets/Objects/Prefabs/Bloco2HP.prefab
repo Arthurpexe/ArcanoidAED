@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 1370271500669884080}
   m_Layer: 0
   m_Name: Bloco2HP
-  m_TagString: Untagged
+  m_TagString: bloco2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -93,7 +93,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   vida: 2
-  nLista: 0
   tipoBloco: 2
   materialBloco: {fileID: 2100000, guid: 7ccdd287ce2617049b1705ccc6b2dd5d, type: 2}
 --- !u!136 &2715999788465284684

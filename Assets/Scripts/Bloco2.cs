@@ -8,28 +8,16 @@ public class Bloco2 : MonoBehaviour
     public int tipoBloco;
     public Material materialBloco;
     public Bloco blocoDesalistado;
-
+    public Bloco myBloco;
 
     private void Update()
     {
-        if (vida == 1)
+        if(vida <2)
         {
-            //Instantiate(bloco1, this.transform.position, this.transform.rotation);
-            //Destroy(this.gameObject);
-            materialBloco.SetColor(tipoBloco, Color.yellow);
+            GetComponent<Renderer>().material.color = Color.yellow;
         }
-        if(vida <= 0)
-        {
-            blocoDesalistado = CriaListaDeBlocos.singleton.listaDeBlocos.Desalistar(tipoBloco);
-            if (blocoDesalistado.tipoDoBloco == tipoBloco)
-            {
-                Destroy(this.gameObject);
-            }
-        }
+
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        vida -= 1;
-    }
+
 }
