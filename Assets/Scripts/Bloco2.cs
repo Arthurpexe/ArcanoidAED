@@ -5,21 +5,26 @@ using UnityEngine;
 public class Bloco2 : MonoBehaviour
 {
     public int vida;
-    public GameObject bloco1;
-    public float nLista;
     public int tipoBloco;
+    public Material materialBloco;
+    public Bloco blocoDesalistado;
 
-    public Bloco2(Bloco meuBloco)
-    {
-        nLista = meuBloco.nDaLista;
-    }
 
     private void Update()
     {
         if (vida == 1)
         {
-            Instantiate(bloco1, this.transform.position, this.transform.rotation);
-            Destroy(this.gameObject);
+            //Instantiate(bloco1, this.transform.position, this.transform.rotation);
+            //Destroy(this.gameObject);
+            materialBloco.SetColor(tipoBloco, Color.yellow);
+        }
+        if(vida <= 0)
+        {
+            blocoDesalistado = CriaListaDeBlocos.singleton.listaDeBlocos.Desalistar(tipoBloco);
+            if (blocoDesalistado.tipoDoBloco == tipoBloco)
+            {
+                Destroy(this.gameObject);
+            }
         }
     }
 

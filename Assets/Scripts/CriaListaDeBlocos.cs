@@ -12,30 +12,6 @@ public class CriaListaDeBlocos : MonoBehaviour
 
     private Quaternion quaternion90 = new Quaternion(0, 0, 7071068, 7071068);
 
-    public bool Desalistou(int tipoDoBloco, float nListaBloco)
-    {
-        if(nListaBloco == nListaOriginal)
-        {
-            listaDeBlocos.Desalistar(tipoDoBloco);
-            return true;
-        }
-        else
-        {
-            return false;
-        }
-    }
-    public bool TaVazia()
-    {
-        if (listaDeBlocos.vazio())
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
-    }
-
     void Awake()
     {
         singleton = this;
@@ -62,7 +38,6 @@ public class CriaListaDeBlocos : MonoBehaviour
                 if (sorte0 == i)
                 {
                     Bloco novoBloco = new Bloco(0);
-                    novoBloco.tipoDoBloco = 0;
                     Instantiate(bloco0, new Vector3(i - 2.5f, nListaOriginal, 0), quaternion90, this.gameObject.transform);
                     listaDeBlocos.Alistar(novoBloco);
                 }
@@ -83,6 +58,5 @@ public class CriaListaDeBlocos : MonoBehaviour
                 }
             }
         }
-        
     }
 }

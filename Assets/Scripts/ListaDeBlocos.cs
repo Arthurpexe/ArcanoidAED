@@ -26,37 +26,39 @@ public class ListaDeBlocos
     public Bloco Desalistar(int tipoDoBloco)
     {
         ElementoBloco aux = primeiro;
-        if (vazio())
+        int posBloco = LocalizaBloco(tipoDoBloco);
+
+        for(int i = 0; i <= posBloco - 1; i++)
         {
-            return null;
+            aux = aux.proximo;
+        }
+
+        ElementoBloco auxRetorno = aux.proximo; 
+
+        if (auxRetorno == ultimo)
+        {
+            aux.proximo = null;
+            aux = ultimo;
+            return auxRetorno.meuBloco;
         }
         else
         {
-            for(int i = 0; i < 6; i++)
-            {
-                if (aux.proximo.meuBloco.tipoDoBloco == tipoDoBloco)
-                {
-                    ElementoBloco auxRetorno = aux.proximo;
-                    if (auxRetorno == ultimo)
-                    {
-                        aux = ultimo;
-                        aux.proximo = null;
-                        return auxRetorno.meuBloco;
-                    }
-                    else
-                    {
-                        aux.proximo = auxRetorno.proximo;
-                        auxRetorno.proximo = null;
-                        return auxRetorno.meuBloco;
-                    }
-                }
-                else
-                {
-                    aux = aux.proximo;
-                }
-            }
-            return null;
+            aux.proximo = auxRetorno.proximo;
+            return auxRetorno.meuBloco;
         }
+    }
+
+    public int LocalizaBloco(int tipoDoBloco)
+    {
+        ElementoBloco aux = primeiro;
+        int i;
+
+        for(i = 0; i <= 6 && aux.meuBloco.tipoDoBloco != tipoDoBloco; i++)
+        {
+            aux = aux.proximo;
+        }
+
+        return i;
     }
 
     public bool vazio()

@@ -93,9 +93,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   vida: 2
-  bloco1: {fileID: 1942927565203795891, guid: 83b580bf395e83745a2f036446ffe9cf, type: 3}
   nLista: 0
   tipoBloco: 2
+  materialBloco: {fileID: 2100000, guid: 7ccdd287ce2617049b1705ccc6b2dd5d, type: 2}
 --- !u!136 &2715999788465284684
 CapsuleCollider:
   m_ObjectHideFlags: 0

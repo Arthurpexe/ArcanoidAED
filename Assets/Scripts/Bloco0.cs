@@ -6,8 +6,10 @@ public class Bloco0 : MonoBehaviour
 {
     private void Update()
     {
-        if (CriaListaDeBlocos.singleton.TaVazia())
+        if (CriaListaDeBlocos.singleton.listaDeBlocos.vazio())
         {
+            CriaListaDeBlocos.singleton.listaDeBlocos.LocalizaBloco(0);
+
             Destroy(this.gameObject);
         }
     }

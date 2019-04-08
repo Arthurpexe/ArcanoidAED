@@ -9,5 +9,6 @@ public class Bloco
 
     public Bloco( int tipoBloco)
     {
+        tipoDoBloco = tipoBloco;
     }
 }
