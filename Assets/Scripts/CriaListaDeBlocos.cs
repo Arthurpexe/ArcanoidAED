@@ -8,7 +8,6 @@ public class CriaListaDeBlocos : MonoBehaviour
     public float nListaOriginal;
     public GameObject bloco0, bloco1, bloco2;
     public ListaDeBlocos listaDeBlocos;
-    public int quantidadeDeBlocos;
 
     private Quaternion quaternion90 = new Quaternion(0, 0, 7071068, 7071068);
 
@@ -27,8 +26,6 @@ public class CriaListaDeBlocos : MonoBehaviour
 
     private void Update()
     {
-        //quantidadeDeBlocos = listaDeBlocos.QuantosBlocos();
-
         if (Input.GetKeyDown(KeyCode.RightControl))
         {
             int sorte0 = Random.Range(0, 6);
@@ -40,7 +37,7 @@ public class CriaListaDeBlocos : MonoBehaviour
 
                 if (sorte0 == i)
                 {
-                    Bloco novoBloco = new Bloco(0);
+                    Bloco novoBloco = new Bloco();
                     blocoInstanciado = Instantiate(bloco0, new Vector3(i - 2.5f, nListaOriginal, 0), quaternion90, this.gameObject.transform);
                     blocoInstanciado.GetComponent<Bloco0>().myBloco = novoBloco;
                     listaDeBlocos.Alistar(novoBloco);
@@ -49,14 +46,14 @@ public class CriaListaDeBlocos : MonoBehaviour
                 {
                     if (sorte == 1)
                     {
-                        Bloco novoBloco = new Bloco(1);
+                        Bloco novoBloco = new Bloco();
                         blocoInstanciado = Instantiate(bloco1, new Vector3(i - 2.5f, nListaOriginal, 0), quaternion90, this.gameObject.transform);
                         blocoInstanciado.GetComponent<Bloco1>().myBloco = novoBloco;
                         listaDeBlocos.Alistar(novoBloco);
                     }
                     if (sorte == 2) 
                     {
-                        Bloco novoBloco = new Bloco(2);
+                        Bloco novoBloco = new Bloco();
                         blocoInstanciado = Instantiate(bloco2, new Vector3(i - 2.5f, nListaOriginal, 0), quaternion90, this.gameObject.transform);
                         blocoInstanciado.GetComponent<Bloco2>().myBloco = novoBloco;
                         listaDeBlocos.Alistar(novoBloco);

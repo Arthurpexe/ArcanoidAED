@@ -93,8 +93,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   vida: 2
-  tipoBloco: 2
   materialBloco: {fileID: 2100000, guid: 7ccdd287ce2617049b1705ccc6b2dd5d, type: 2}
+  myMaterial: {fileID: 2100000, guid: 7ccdd287ce2617049b1705ccc6b2dd5d, type: 2}
 --- !u!136 &2715999788465284684
 CapsuleCollider:
   m_ObjectHideFlags: 0

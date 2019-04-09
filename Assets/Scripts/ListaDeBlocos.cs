@@ -7,13 +7,13 @@ public class ListaDeBlocos
 {
     public ElementoBloco primeiro, ultimo;
     public float nDaLista;
+    public int quantidadeBlocos;
 
     public ListaDeBlocos(float numeroDaLista)
     {
         nDaLista = numeroDaLista;
         ElementoBloco aux = new ElementoBloco(null);
-        primeiro = aux;
-        ultimo = aux;
+        primeiro = ultimo = aux;
     }
 
     public void Alistar(Bloco novoBloco)
@@ -24,78 +24,46 @@ public class ListaDeBlocos
         
     }
 
-    public Bloco Desalistar(int tipoDoBloco)
-    {
-        ElementoBloco aux = primeiro;
-        int posBloco = LocalizaBloco(tipoDoBloco);
-
-        for(int i = 0; i <= posBloco - 1; i++)
-        {
-            aux = aux.proximo;
-        }
-
-        ElementoBloco auxRetorno = aux.proximo; 
-
-        if (auxRetorno == ultimo)
-        {
-            aux.proximo = null;
-            aux = ultimo;
-            return auxRetorno.meuBloco;
-        }
-        else
-        {
-            aux.proximo = auxRetorno.proximo;
-            return auxRetorno.meuBloco;
-        }
-    }
-
-
     public Bloco DesalistarConteudo(Bloco bloco)
     {
-        ElementoBloco aux = primeiro.proximo;
-        while (aux.proximo != null && aux.proximo.meuBloco.Equals(bloco))
-        {
-            aux = aux.proximo;
-        }
+        ElementoBloco aux = primeiro;
+        ElementoBloco auxRetorno;
 
-        if(aux.proximo == null)
+        if (last())
         {
-            return null;
+            auxRetorno = aux.proximo;
+            ultimo = aux;
+            aux.proximo = null;
+            Debug.Log("desalistei o ultimo bloco");
+            return auxRetorno.meuBloco;
         }
         else
         {
-            ElementoBloco auxRetorno = aux.proximo;
-            aux.proximo = auxRetorno.proximo;
-            if (auxRetorno == ultimo)
-                ultimo = aux;
+            while (aux.proximo != null && aux.proximo.meuBloco.Equals(bloco))
+            {
+                aux = aux.proximo;
+            }
+
+            if (aux.proximo == null)
+            {
+                Debug.Log("desalistei nada");
+                return null;
+            }
             else
+            {
+                auxRetorno = aux.proximo;
+                aux.proximo = auxRetorno.proximo;
                 auxRetorno.proximo = null;
-
-            return auxRetorno.meuBloco;
+                Debug.Log("desalistei o bloco");
+                return auxRetorno.meuBloco;
+            }
         }
-
-
     }
 
-    
-
-    public int LocalizaBloco(int tipoDoBloco)
+    public bool last()
     {
         ElementoBloco aux = primeiro;
-        int i;
-
-        for(i = 0; i <= 6 && aux.meuBloco.tipoDoBloco != tipoDoBloco; i++)
-        {
-            aux = aux.proximo;
-        }
-
-        return i;
-    }
-
-    public bool vazio()
-    {
-        ElementoBloco aux = primeiro.proximo;
-        if (aux.proximo == null)
+        if (aux.proximo == ultimo)
         {
             return true;
         }
@@ -108,11 +76,12 @@ public class ListaDeBlocos
     {
         ElementoBloco aux = primeiro.proximo;
         int quantidade = 0;
-        while(aux.proximo != null)
+
+        while(aux != null)
         {
             aux = aux.proximo;
             quantidade += 1;
         }
-        Debug.Log(quantidade);
+        quantidadeBlocos = quantidade;
     }
 }

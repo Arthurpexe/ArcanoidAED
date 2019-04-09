@@ -92,9 +92,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed0c3701c98a82745b5d3bf6a26c8548, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vida: 1
-  tipoBloco: 1
-  ruidoMorte: {fileID: 0}
+  myMaterial: {fileID: 2100000, guid: 64ef14c92db910c4896d091bded25591, type: 2}
 --- !u!136 &2213826152882101581
 CapsuleCollider:
   m_ObjectHideFlags: 0

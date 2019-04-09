@@ -4,11 +4,7 @@ using UnityEngine;
 
 public class Bloco
 {
-    public int tipoDoBloco;
-    public float nDaLista;
-
-    public Bloco( int tipoBloco)
+    public Bloco()
     {
-        tipoDoBloco = tipoBloco;
     }
 }

@@ -5,6 +5,7 @@ using UnityEngine;
 public class Bolinha : MonoBehaviour
 {
     CriaListaDeBlocos lista;
+
     private void OnTriggerEnter(Collider other)
     {
         if(other == GameController.singleton.colisorPlataforma)
@@ -18,14 +19,13 @@ public class Bolinha : MonoBehaviour
         {
             lista = other.GetComponentInParent<CriaListaDeBlocos>();
 
-            if (lista.listaDeBlocos.vazio())
+            if (lista.listaDeBlocos.last())
             {
                 lista.listaDeBlocos.DesalistarConteudo(other.GetComponent<Bloco0>().myBloco);
                 lista.listaDeBlocos.QuantosBlocos();
                 GameController.singleton.audios.transform.GetChild(2).GetComponent<AudioSource>().Play();
                 Destroy(other.gameObject);
             }
-
         }
         else if(other.tag =="bloco1")
         {

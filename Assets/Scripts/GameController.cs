@@ -10,7 +10,7 @@ public class GameController : MonoBehaviour
     public FilaDeBolinhas filaDeBolas = new FilaDeBolinhas();
     public Collider colisorMorte, colisorPlataforma;
     public int nBolasFilaTotal = 0, nBolasFilaAtual = 0, nBolasGame = 0, bolasPegas = 0;
-    public GameObject GameOverCanvas, ortoCam, treeDCam;
+    public GameObject gameOverCanvas, menuCanvas, ortoCam, treeDCam;
     public Text numeroDeBolas;
     public float cooldown, tempocooldown;
     public Image cooldownIcon;
@@ -68,15 +68,29 @@ public class GameController : MonoBehaviour
         if (nBolasGame == 0 && nBolasFilaAtual == 0)
         {
             Time.timeScale = 0;
-            GameOverCanvas.SetActive(true);
+            gameOverCanvas.SetActive(true);
         }
         else
         {
             Time.timeScale = 1;
-            GameOverCanvas.SetActive(false);
+            gameOverCanvas.SetActive(false);
         }
 
-        if (Input.GetKeyDown(KeyCode.Keypad0) && cooldown >= 1)
+        //if (Input.GetKeyDown(KeyCode.P))
+        //{
+        //    if(Time.timeScale == 1)
+        //    {
+        //        Time.timeScale = 0;
+        //        menuCanvas.SetActive(true);
+        //    }
+        //    if(menuCanvas.activeInHierarchy)
+        //    {
+        //        Time.timeScale = 1;
+        //        menuCanvas.SetActive(false);
+        //    }
+        //}
+
+        if (Input.GetKeyDown(KeyCode.Space) && cooldown >= 1)
         {
              bolaX = filaDeBolas.Desenfileira();
             if (bolaX != null)
@@ -95,12 +109,12 @@ public class GameController : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.KeypadEnter))
+        if (Input.GetKeyDown(KeyCode.Backspace))
         {
             filaDeBolas.Enfileira(CriaBola());
         }
 
-        if (Input.GetKeyDown(KeyCode.Backspace))
+        if (Input.GetKeyDown(KeyCode.F))
         {
             if (ortoCam.activeSelf == true)
             {
@@ -113,6 +127,7 @@ public class GameController : MonoBehaviour
                 ortoCam.SetActive(true);
             }
         }
+
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             Application.Quit();
