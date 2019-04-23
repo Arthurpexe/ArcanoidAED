@@ -90,7 +90,7 @@ public class GameController : MonoBehaviour
         //    }
         //}
 
-        if (Input.GetKeyDown(KeyCode.Space) && cooldown >= 1)
+        if (Input.GetKeyDown(KeyCode.W) && cooldown >= 1)
         {
              bolaX = filaDeBolas.Desenfileira();
             if (bolaX != null)

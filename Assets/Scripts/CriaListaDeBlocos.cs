@@ -26,7 +26,7 @@ public class CriaListaDeBlocos : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.RightControl))
+        if (Input.GetKeyDown(KeyCode.Z))
         {
             int sorte0 = Random.Range(0, 6);
 
