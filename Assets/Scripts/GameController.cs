@@ -56,7 +56,7 @@ public class GameController : MonoBehaviour
             bolasPegas -= 1;
         }
 
-        if (nBolasFilaAtual == 0)
+        if (nBolasFilaAtual == 0 || cooldown < 1)
         {
             bolaFixa.SetActive(false);
         }
@@ -76,21 +76,19 @@ public class GameController : MonoBehaviour
             gameOverCanvas.SetActive(false);
         }
 
-        //if (Input.GetKeyDown(KeyCode.P))
-        //{
-        //    if(Time.timeScale == 1)
-        //    {
-        //        Time.timeScale = 0;
-        //        menuCanvas.SetActive(true);
-        //    }
-        //    if(menuCanvas.activeInHierarchy)
-        //    {
-        //        Time.timeScale = 1;
-        //        menuCanvas.SetActive(false);
-        //    }
-        //}
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            if (menuCanvas.activeInHierarchy)
+            {
+                menuCanvas.SetActive(false);
+            }
+            else
+            {
+                menuCanvas.SetActive(true);
+            }
+        }
 
-        if (Input.GetKeyDown(KeyCode.W) && cooldown >= 1)
+        if ((Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)) && cooldown >= 1)
         {
              bolaX = filaDeBolas.Desenfileira();
             if (bolaX != null)
